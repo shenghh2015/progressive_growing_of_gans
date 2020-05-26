@@ -15,8 +15,7 @@ RUN pip install sklearn matplotlib natsort ipython seaborn
 #RUN pip install Pillow==6.2.1
 
 RUN pip install numpy==1.13.3
-RUN pip install scipy==1.0.0
-RUN pip install tensorflow-gpu==1.6.0
+RUN pip install scipy
 RUN pip install moviepy==0.2.3.2
 RUN pip install Pillow==3.1.1
 RUN pip install lmdb==0.93

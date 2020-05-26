@@ -17,7 +17,7 @@ def normalize_0_1(data):
 docker = True
 
 input_image_file = '/shared/planck/CommonData/MRI/anomaly_detection_data/axial_batch2_256x256.npy'
-output_image_dir = '/shared/planck/Phantom/Breast_Xray/MRI_GAN'
+output_image_dir = '/shared/radon/Phantom/Breast_Xray'
 
 print('Data loading ...')
 img = np.load(input_image_file)
@@ -28,7 +28,7 @@ for i in range(img.shape[0]):
 	if np.isnan(image_sum):
 		continue
 	else:
-		misc.imsave('image_{}.png'.format(indx),image)
+		misc.imsave('{}/image_{}.png'.format(output_image_dir, indx),image)
 		indx = indx + 1
 	if indx%1000 == 0:
 		print('Save the {}-th'.format(indx))

@@ -29,10 +29,10 @@ WORKDIR /data
 
 ## 
 ##  1. build up a docker container
-##  docker build . < Dockerfile -t shenghh2020/proGAN_tf:latest -t shenghh2020/proGAN_tf:1.0
+##  docker build . < Dockerfile -t shenghh2020/progan_tf:latest -t shenghh2020/progan_tf:1.0
 ##  2. push the docker container to the docker hub
-##  docker push shenghh2020/proGAN_tf:latest 
-##  docker push shenghh2020/proGAN_tf:1.0
+##  docker push shenghh2020/progan_tf:latest 
+##  docker push shenghh2020/progan_tf:1.0
 ##  3. qsub a job to the v100_cluster
 ##  bsub -Is -G compute-anastasio -q anastasio-interactive -a 'docker(shenghh2020/proGAN_tf:latest)' -gpu "num=4" /bin/bash
 ##  when the access permission is required, use the following command:

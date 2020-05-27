@@ -288,7 +288,7 @@ if __name__ == "__main__":
     if args.docker:
         config.data_dir = '/data/datasets/MRI_GAN/'
         config.result_dir = '/data/datasets/MRI_GAN/results'
-    config.env.CUDA_VISIBLE_DEVICES = gpu
+	config.env.CUDA_VISIBLE_DEVICES = args.gpu
     misc.init_output_logging()
     np.random.seed(config.random_seed)
     print('Initializing TensorFlow...')

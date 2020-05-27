@@ -290,6 +290,10 @@ if __name__ == "__main__":
         config.result_dir = '/data/datasets/MRI_GAN/results'
     config.num_gpus = len(args.gpu.split(','))
     config.env.CUDA_VISIBLE_DEVICES = args.gpu
+    if config.num_gpus == 4:
+        config.desc.replace('-preset-v2-2gpus', '-preset-v2-4gpus')
+        config.sched.minibatch_base = 16
+        config.sched.minibatch_dict = {4: 512, 8: 256, 16: 128, 32: 64, 64: 32, 128: 16, 256: 16}
     misc.init_output_logging()
     np.random.seed(config.random_seed)
     print('Initializing TensorFlow...')

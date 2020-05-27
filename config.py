@@ -21,8 +21,10 @@ class EasyDict(dict):
 # data_dir = 'datasets'
 # result_dir = 'results'
 
-data_dir = 'data/MRI_GAN/'
-result_dir = 'data/MRI_GAN/results'
+# data_dir = 'data/MRI_GAN/'
+# result_dir = 'data/MRI_GAN/results'
+data_dir = '/data/datasets/MRI_GAN/'
+result_dir = '/data/datasets/MRI_GAN/results'
 
 #----------------------------------------------------------------------------
 # TensorFlow options.

@@ -283,10 +283,12 @@ def str2bool(value):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--docker", type = str2bool, default = True)
+    parser.add_argument("--gpu", type = str, default = '0,1')
     args = parser.parse_args()
     if args.docker:
         config.data_dir = '/data/datasets/MRI_GAN/'
         config.result_dir = '/data/datasets/MRI_GAN/results'
+    config.env.CUDA_VISIBLE_DEVICES = gpu
     misc.init_output_logging()
     np.random.seed(config.random_seed)
     print('Initializing TensorFlow...')

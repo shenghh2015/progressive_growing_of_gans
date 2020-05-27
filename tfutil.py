@@ -329,8 +329,8 @@ class Optimizer:
                     for var_idx, grad_shape in enumerate(self._grad_shapes):
                         g = [dev_grads[dev][var_idx][0] for dev in devices]
                     	if np.prod(grad_shape):
-#                             g = tf.contrib.nccl.all_sum(g)
 							g = nccl_ops.all_sum(g)
+#                             g = tf.contrib.nccl.all_sum(g)
                         for dev, gg in zip(devices, g):
                             dev_grads[dev][var_idx] = (gg, dev_grads[dev][var_idx][1])
 

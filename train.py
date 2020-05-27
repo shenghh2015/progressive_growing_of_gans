@@ -15,6 +15,8 @@ import tfutil
 import dataset
 import misc
 
+import argparse
+
 #----------------------------------------------------------------------------
 # Choose the size and contents of the image snapshot grids that are exported
 # periodically during training.
@@ -271,11 +273,20 @@ def train_progressive_gan(
     summary_log.close()
     open(os.path.join(result_subdir, '_training-done.txt'), 'wt').close()
 
+def str2bool(value):
+    return value.lower() == 'true'
+
 #----------------------------------------------------------------------------
 # Main entry point.
 # Calls the function indicated in config.py.
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--docker", type = str2bool, default = True)
+    args = parser.parse_args()
+    if args.docker:
+        config.data_dir = '/data/datasets/MRI_GAN/'
+        config.result_dir = '/data/datasets/MRI_GAN/results'
     misc.init_output_logging()
     np.random.seed(config.random_seed)
     print('Initializing TensorFlow...')
